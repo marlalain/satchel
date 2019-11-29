@@ -1,8 +1,18 @@
 const express = require('express')
 const file_upload = require('express-fileupload')
+const fs = require('fs')
 
 const app = express()
 app.use(file_upload())
+
+app.get('/pictures', (req, res) => {
+	let directory = "client/public/uploads/"
+	let files = fs.readdirSync(directory)
+
+	return res.json({
+		file_list: files
+	})
+})
 
 app.post('/uploads', (req, res) => {
 	if (req.files === null) {

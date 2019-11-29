@@ -4,9 +4,7 @@ import axios from 'axios'
 const File_upload = () => {
 	const [file, set_file] = useState('')
 	const [file_name, set_file_name] = useState('')
-	const [uploaded_file, set_uploaded_file] = useState({
-
-	})
+	const [uploaded_file, set_uploaded_file] = useState({})
 
 	const on_change = e => {
 		set_file(e.target.files[0])
