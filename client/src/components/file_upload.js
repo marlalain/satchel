@@ -37,7 +37,7 @@ const File_upload = () => {
   return (
     <Fragment>
         <form onSubmit={on_submit}>
-          <div className="">
+          <div className="form">
 						<input onChange={on_change} type="file" id="custom_file" />
 						<input type="submit" id="submit_btn" />
           </div>

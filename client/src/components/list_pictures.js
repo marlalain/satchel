@@ -10,7 +10,7 @@ const List_pictures = () => {
 		.then(res => {
 			set_files(res.data.file_list.reverse().map(file => (
 				<a key={file} download={file} title={file} href={path+file}>
-					<img key={file} style={{width: '50%'}} src={path+file} /></a>
+					<img key={file} className="pictures" src={path+file} /></a>
 			)))
 		})
 	return (
