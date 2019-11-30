@@ -3,7 +3,7 @@
 This can take a while.
 
 ```sh
-git clone github.com/paulo-e/satchel.git
+git clone https://www.github.com/paulo-e/satchel.git
 cd satchel
 npm install
 cd client
