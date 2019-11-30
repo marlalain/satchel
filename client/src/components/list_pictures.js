@@ -8,7 +8,7 @@ const List_pictures = () => {
 
 	axios.get('/pictures')
 		.then(res => {
-			set_files(res.data.file_list.map(file => (
+			set_files(res.data.file_list.reverse().map(file => (
 				<a download={file} title={file} href={path+file}>
 					<img style={{width: '50%'}} src={path+file} /></a>
 			)))			
