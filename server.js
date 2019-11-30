@@ -24,6 +24,7 @@ app.post('/uploads', (req, res) => {
 	const file = req.files.file
 	console.log(file.mimetype)
 	let dir
+	let file_name = file.name.split(' ').join('_')
 
 	if (file.mimetype.includes("image")) {
 		dir = "pictures"
@@ -35,15 +36,15 @@ app.post('/uploads', (req, res) => {
 		dir = "documents"
 	}
 
-	file.mv(`${__dirname}/client/public/${dir}/${file.name}`, err => {
+	file.mv(`${__dirname}/client/public/${dir}/${file_name}`, err => {
 		if (err) {
 			console.error(err)
 			return res.status(500).send(err)
 		}
 
 		res.json({
-			file_name: file.name,
-			file_path: `/${dir}/${file.name}`
+			file_name: file_name,
+			file_path: `/${dir}/${file_name}`
 		})
 	})
 })
