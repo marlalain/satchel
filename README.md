@@ -13,4 +13,4 @@ cd ..
 npm run dev
 ```
 
-If you don't want some type of upload like Videos for example, just don't create the folder "client/client/public/videos"
+If you don't want some type of upload like Videos for example, just don't create the folder "client/public/videos"
