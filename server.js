@@ -33,4 +33,4 @@ app.post('/uploads', (req, res) => {
 	})
 })
 
-app.listen(5000, () => console.log('\u001b[35mServerzinho Rosa piscante iniciado###'))
+app.listen(5000, () => console.log('\u001b[35mServerzinho Rosa iniciado###'))
