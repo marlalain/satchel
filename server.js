@@ -5,8 +5,8 @@ const fs = require('fs')
 const app = express()
 app.use(file_upload())
 
-app.get('/pictures', (req, res) => {
-	let directory = "client/public/uploads/"
+app.get('/file_list', (req, res) => {
+	let directory = `client/public/${req.param('dir')}/`
 	let files = fs.readdirSync(directory)
 
 	return res.json({
@@ -22,7 +22,20 @@ app.post('/uploads', (req, res) => {
 	}
 
 	const file = req.files.file
-	file.mv(`${__dirname}/client/public/uploads/${file.name}`, err => {
+	console.log(file.mimetype)
+	let dir
+
+	if (file.mimetype.includes("image")) {
+		dir = "pictures"
+	} else if (file.mimetype.includes("video")) {
+		dir = "videos"
+	} else if (file.mimetype.includes("music")) {
+		dir = "musics"
+	} else {
+		dir = "documents"
+	}
+
+	file.mv(`${__dirname}/client/public/${dir}/${file.name}`, err => {
 		if (err) {
 			console.error(err)
 			return res.status(500).send(err)
@@ -30,7 +43,7 @@ app.post('/uploads', (req, res) => {
 
 		res.json({
 			file_name: file.name,
-			file_path: `/uploads/${file.name}`
+			file_path: `/${dir}/${file.name}`
 		})
 	})
 })

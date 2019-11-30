@@ -1,16 +1,16 @@
 import React, { useState, Fragment } from 'react'
 import axios from 'axios'
 
-const path = '/pictures/'
+const path = '/videos/'
 
-const List_pictures = () => {
+const List_videos = () => {
 	const [files, set_files] = useState('')
 
-	axios.get('/file_list?dir=pictures')
+	axios.get('/file_list?dir=videos')
 		.then(res => {
 			set_files(res.data.file_list.reverse().map(file => (
 				<a key={file} download={file} title={file} href={path+file}>
-					<img key={file} className="pictures" src={path+file} /></a>
+					<img key={file} className="videos" src={path+file} /></a>
 			)))
 		})
 	return (
@@ -20,4 +20,4 @@ const List_pictures = () => {
 	)
 }
 
-export default List_pictures
+export default List_videos

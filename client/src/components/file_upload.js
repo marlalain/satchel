@@ -15,6 +15,7 @@ const File_upload = () => {
 		e.preventDefault()
 		const form_data = new FormData()
 		form_data.append('file', file)
+		console.log("Type:", file.type)
 
 		try {
 			const res = await axios.post('/uploads', form_data, {
