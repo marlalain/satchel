@@ -44,7 +44,6 @@ const File_upload = () => {
           </div>
 				</form>
 				{ uploaded_file ? <div className="">
-					<p>{uploaded_file.file_name}</p>
 					<img style={{ width: '100%' }} src={uploaded_file.file_path} alt={uploaded_file.file_name} />
 				</div> : null
 				}

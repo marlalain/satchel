@@ -1,7 +1,7 @@
 node_modules
 package-lock.json
 
-client/public/pictures/
-client/public/videos/
-client/public/musics/
-client/public/documents/
+client/public/pictures/*
+client/public/videos/*
+client/public/musics/*
+client/public/documents/*
