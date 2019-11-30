@@ -9,9 +9,7 @@ app.get('/pictures', (req, res) => {
 	let directory = "client/public/uploads/"
 	let files = fs.readdirSync(directory)
 
-	return res.json({
-		file_list: files
-	})
+	return res.json(files)
 })
 
 app.post('/uploads', (req, res) => {
@@ -35,4 +33,4 @@ app.post('/uploads', (req, res) => {
 	})
 })
 
-app.listen(5000, () => console.log('Server started...'))
+app.listen(5000, () => console.log('\u001b[35mServerzinho Rosa piscante iniciado###'))
